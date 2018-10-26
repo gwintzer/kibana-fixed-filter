@@ -2,6 +2,10 @@
 
 > Fix the position of the dashboard filter element at the top of viewport
 
+
+![fixed filter plugin demo](assets/fixed-filter-anime.gif)
+
+
 ---
 
 ## development
