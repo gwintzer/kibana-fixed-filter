@@ -1,10 +1,13 @@
 {
-  "name": "fixed-filter",
-  "version": "6.4.2-1",
+  "name": "kibana-fixed-filter",
+  "version": "6.6.1-1",
   "description": "Fix the position of the dashboard filter element at the top of viewport",
   "main": "index.js",
+  "contributors": [
+    "Guillaume Wintzer <guillaume.wintzer@orange.com> (https://github.com/gwintzer/)"
+  ],
   "kibana": {
-    "version": "6.4.2",
+    "version": "kibana",
     "templateVersion": "1.0.0"
   },
   "scripts": {

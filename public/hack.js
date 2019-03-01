@@ -1,51 +1,33 @@
-
 import { uiModules } from 'ui/modules';
+import chrome from 'ui/chrome'
 
-// import { FilterBarQueryFilterProvider } from 'ui/filter_bar/query_filter';
-// import { getInjected } from "ui/chrome";
+const enabledParam = chrome.getUiSettingsClient().params.initialSettings["fixed-filter:enabled"]
+if (!enabledParam || enabledParam.userValue !== false) {
+  
+  let app = uiModules.get('hack/fixedFilter', ['kibana']);
 
+  var fixmeTop; //$('filter-bar').offset().top;  // get initial position of the element
 
-//console.log(FilterBarQueryFilterProvider);
+  $(window).scroll(function() {                  // assign scroll event listener
 
-let app = uiModules.get('hack/fixedFilter', ['kibana']);
+    if (!$('filter-bar').length)
+      return
 
-//const isEnabledPlugin = getInjected('fixedFilter.enabled');
+      fixmeTop = 70; //$('filter-bar').offset().top;
 
+      var currentScroll = $(window).scrollTop(); // get current position
 
-var fixmeTop; //$('filter-bar').offset().top;       // get initial position of the element
+      if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+        $('filter-bar').css({                      // scroll to that element or below it
+        position: 'fixed',
+        top: '0'
+      });
+    } else {                                   // apply position: static
+      $('filter-bar').css({                      // if you scroll above it
+        position: 'static'
+      });
+    }
+    
+  });
 
-$(window).scroll(function() {                  // assign scroll event listener
-
-  if (!$('filter-bar').length)
-    return;
-
-  fixmeTop = 70; //$('filter-bar').offset().top;
-
-  var currentScroll = $(window).scrollTop(); // get current position
-
-  if (currentScroll >= fixmeTop /*&& isEnabledPlugin*/) {           // apply position: fixed if you
-    $('filter-bar').css({                      // scroll to that element or below it
-      position: 'fixed',
-      top: '0'
-    });
-  } else {                                   // apply position: static
-    $('filter-bar').css({                      // if you scroll above it
-      position: 'static'
-    });
-  }
-
-});
-
-
-
-
-
-
-// var Sticky = require('sticky-js');
-//
-// window.setTimeout(function() {
-//   var sticky = new Sticky(".filter-bar");
-//
-//   console.log("filter-bar ", $(".filter-bar"));
-//   console.log("sticky ", sticky);
-// }, 10000)
+}
