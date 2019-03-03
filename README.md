@@ -9,11 +9,11 @@
 ---
 ## installation
 
-Use this example or manually pick a [release](https://github.com/gwintzer.kibana-fixed-filter/releases)  
+Use this example or manually pick a [release](https://github.com/gwintzer/kibana-fixed-filter/releases)  
 Install it with the kibana-plugin CLI
 <pre>
 cd path/to/kibana
-bin/kibana-plugin install https://github.com/gwintzer/kibana-fixed-filter/releases/download/6.6.1/kibana-fixed-filter-6.6.1-latest.zips
+bin/kibana-plugin install https://github.com/gwintzer/kibana-fixed-filter/releases/download/6.6.1/kibana-fixed-filter-6.6.1-latest.zip
 </pre>
 
 ---
